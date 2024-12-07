@@ -24,15 +24,19 @@ env:
   ANDROID_APP_PACKAGE_NAME: "com.zerotorelease.app.staging"
 
 jobs:
-  build:
+  build-app:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
+    concurrency:
+      group: staging-deploy
+      cancel-in-progress: false
 
     steps:
     - uses: actions/checkout@v4
       with:
         fetch-depth: 0
 
-     - uses: actions/setup-java@v4
+    - uses: actions/setup-java@v4
       with:
         distribution: 'corretto' # See 'Supported distributions' for available options
         java-version: '17'
