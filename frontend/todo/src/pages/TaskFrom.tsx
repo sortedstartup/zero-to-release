@@ -29,6 +29,12 @@ const TaskForm: React.FC = () => {
                 setDescription(task.description);
             }
         }
+        else {
+            // Adding a new task, clear the fields
+            setTitle('');
+            setDescription('');
+        }
+
     }, [id, tasks]);
 
     const handleSubmit = async (): Promise<void> => {

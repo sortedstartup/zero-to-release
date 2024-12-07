@@ -1,7 +1,7 @@
 import { atom } from 'nanostores';
 import axios from 'axios';
 
-const API_BASE_URL = 'http://localhost:8000'; // Replace with your backend URL
+const API_BASE_URL = 'http://localhost:8080'; // Replace with your backend URL
 
 // Define Task interface
 export interface Task {
