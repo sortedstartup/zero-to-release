@@ -10,5 +10,9 @@
 - `cd backend`
 - run `go mod tidy`
 - run `go run ./main.go`
-- you can access API using this URL 
+- you can access API using this URL
+
+# Add steps to create a tag to trigger action to create a backend docker image
+
+
 
