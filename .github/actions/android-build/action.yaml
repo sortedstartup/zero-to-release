@@ -1,0 +1,45 @@
+name: Build the android app
+description: Build android app for a given flavor
+inputs:
+  flavor:
+    required: true
+    description: The flavor to build (e.g., staging, prod)
+
+runs:
+  using: "composite"
+  steps:
+  - name: Cache pnpm store
+    uses: actions/cache@v4
+    with:
+      path: ~/.pnpm-store
+      key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+      restore-keys: |
+        ${{ runner.os }}-pnpm-store-
+        
+  - name: Install dependencies
+    shell: bash
+    run: |
+      cd ./frontend/todo
+      pnpm install
+
+  - name: Build Ionic project
+    shell: bash
+    run: |
+      cd ./frontend/todo
+      pnpm run build --mode ${{ inputs.flavor }}
+      npx cap sync
+
+  - uses: actions/cache@v4
+    with:
+      path: |
+        ~/.gradle/caches
+        ~/.gradle/wrapper
+      key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+      restore-keys: |
+        ${{ runner.os }}-gradle-
+
+  - name: Build debug and release APK and AAB
+    shell: bash
+    run: |
+      cd ./frontend/todo/android
+      ./gradlew bundle${{ inputs.flavor }} assemble${{ inputs.flavor }}
