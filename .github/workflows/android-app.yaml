@@ -56,8 +56,8 @@ jobs:
       with: 
         name: ${{ env.APP_NAME }}-android-${{ env.APP_FLAVOR }}-all
         path: |
-          ./frontend/ionic/android/app/build/outputs/apk/${{ env.APP_FLAVOR }}/debug/app-${{ env.APP_FLAVOR }}-debug.apk
-          ./frontend/ionic/android/app/build/outputs/apk/${{ env.APP_FLAVOR }}/release/app-${{ env.APP_FLAVOR }}-release-unsigned.apk
-          ./frontend/ionic/android/app/build/outputs/bundle/${{ env.APP_FLAVOR }}Debug/app-${{ env.APP_FLAVOR }}-debug.aab
-          ./frontend/ionic/android/app/build/outputs/bundle/${{ env.APP_FLAVOR }}Release/app-${{ env.APP_FLAVOR }}-release.aab
+          ./frontend/ionic/android/app/build/outputs/apk/${{ env.APP_FLAVOR }}/debug/*
+          ./frontend/ionic/android/app/build/outputs/apk/${{ env.APP_FLAVOR }}/release/*
+          ./frontend/ionic/android/app/build/outputs/bundle/${{ env.APP_FLAVOR }}Debug/*
+          ./frontend/ionic/android/app/build/outputs/bundle/${{ env.APP_FLAVOR }}Release/*
         retention-days: 10
