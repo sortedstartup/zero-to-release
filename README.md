@@ -14,5 +14,7 @@
 
 # Add steps to create a tag to trigger action to create a backend docker image
 
+# Add steps to get the aab or apk artifact from github
 
+# how to add one more flavor in build.gradle for android
 

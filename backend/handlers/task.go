@@ -47,7 +47,6 @@ func (h *TaskHandler) GetTasks(w http.ResponseWriter, r *http.Request) {
 }
 
 func (h *TaskHandler) CreateTask(w http.ResponseWriter, r *http.Request) {
-	log.Println("I am in Create task handler")
 	var task models.Task
 	if err := json.NewDecoder(r.Body).Decode(&task); err != nil {
 		http.Error(w, err.Error(), http.StatusBadRequest)
