@@ -28,13 +28,13 @@ android {
             dimension "environment"
             applicationIdSuffix ".staging"
             versionNameSuffix "-staging"
-            versionCode stagingVersionCode
+            versionCode 1
         }
         prod {
             dimension "environment"
             versionNameSuffix ""
             applicationIdSuffix ""
-            versionCode prodVersionCode
+            versionCode 1
         }
     }
 }
