@@ -16,5 +16,5 @@
 
 # Add steps to get the aab or apk artifact from github
 
-
+# how to add one more flavor in build.gradle for android
 
